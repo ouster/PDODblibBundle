@@ -22,13 +22,13 @@ You will need a sane build environment, sudo access and your wits about you!
 
 To get the microsoft drivers:
 =============================
-*msodbcsql-11.0.2270.0.tar.gz [http://www.microsoft.com/en-au/download/details.aspx?id=36437]
-*sqlncli-11.0.1790.0.tar.gz [http://www.microsoft.com/en-au/download/details.aspx?id=28160]
+*msodbcsql-11.0.2270.0.tar.gz http://www.microsoft.com/en-au/download/details.aspx?id=36437
+*sqlncli-11.0.1790.0.tar.gz http://www.microsoft.com/en-au/download/details.aspx?id=28160
 
 To get unixODBC-2.3.2 sources:
 ==============================
 http://www.unixodbc.org/ - this site is extremely slow/broken so grab them from here: 
-[http://www.linuxfromscratch.org/blfs/view/svn/general/unixodbc.html]
+http://www.linuxfromscratch.org/blfs/view/svn/general/unixodbc.html
 
 To get PHP sources and build pdo.so & pdo_odbc.so for use with unixODBC / PHP:
 ===============================================================
