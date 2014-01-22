@@ -71,9 +71,10 @@ sudo make install
 Create symlinks as these drivers are designed for RH 5/6
 ========================================================
 ```
-sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 ./libssl.so.10
-sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 ./libcrypto.so.10
+sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10
+sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10
 ```
+You may have to link some other libs as your OS may have them in different places
 
 MS Native Command Line Client driver (not required for access from PHP but needed for isql access)
 ==================================================================================================
