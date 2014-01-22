@@ -211,7 +211,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
     'driverClass' => 'PDODblibBundle\Doctrine\DBAL\Driver\PDODblib\Driver',
     'dbname' => '<yourDBname>',
     'host' => '<your SQL server instance host anme>',
-    'dsn' => '{SQLServerMSODBC}',
+    //'dsn' => '{SQLServerMSODBC}',
     //'odbcdriver' => '/opt/microsoft/msodbcsql/lib64/libmsodbcsql-11.0.so.2270.0',
     'odbcdriver' => '{ODBCDriver11forSQLServer}',
     'charset' => 'utf8',
