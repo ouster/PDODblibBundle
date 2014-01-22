@@ -218,6 +218,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
 ```
 
 
+**INFO - I've not done this!
 
 FYI - Doctrine Test Suite
 =========================
