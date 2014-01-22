@@ -200,7 +200,9 @@ in your bootstrap.php (or as appropriate)
 Add
 
 putenv('ODBCSYSINI=/etc');
-putenv('ODBCINI=/etc/odbc.ini'); // or add in /etc/profile, or apache configuration - google!
+
+putenv('ODBCINI=/etc/odbc.ini'); // or add in /etc/profile, or apache configuration - google it
+
 
 ```
 //Register your PDO connection with Silex Doctrine service provider
@@ -220,11 +222,14 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
 ]);
 ```
 
-_Note_
+__Note__
 *You can pass in the full path/filename of your odbc driver .so library and it will by-pass the odbc configuration
+
 *I've modified PDOlibBundle Driver class to create SQL Server style connection string
+
 *odbcdriver is passed to the Driver parameter, and is separate to the usual PDO param driver. Avoid using this as will 
 not be found in the Driver Map!
+
 
 
 *INFO - I've not done this!*
