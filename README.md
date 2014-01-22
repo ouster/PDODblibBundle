@@ -30,7 +30,7 @@ To get unixODBC-2.3.2 sources:
 http://www.unixodbc.org/ - this site is extremely slow/broken so grab them from here: 
 [http://www.linuxfromscratch.org/blfs/view/svn/general/unixodbc.html]
 
-To get PHP sources and build pdo.so & pdo_odbc.so for use with unixODBC:
+To get PHP sources and build pdo.so & pdo_odbc.so for use with unixODBC / PHP:
 ===============================================================
 git clone https://github.com/php/php-src
 
