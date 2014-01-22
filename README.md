@@ -54,7 +54,7 @@ sudo make install #installs into your php extensions dir
 
 Useful blog entry here:http://blog.afoolishmanifesto.com/archives/1855
 
-Building the UnixODBC 2.3.2
+Building UnixODBC 2.3.2
 ===========================
 ```
 cd unixodbc-2.3.2
@@ -130,6 +130,7 @@ odbcinst.ini
 [ODBC]
 Trace                   = yes
 TraceFile               = /tmp/odbctracefile.log
+# disable tracing in production!
 
 [SQLServerNativeClient11.0]
 Description             = Microsoft SQL Server ODBC Driver V1.0 for Linux
@@ -139,11 +140,11 @@ UsageCount              = 3
 
 [ODBCDriver11forSQLServer]
 Description             = Microsoft ODBC Driver 11 for SQL Server
-#Driver                 = /opt/microsoft/msodbcsql/lib64/libmsodbcsql-11.0.so.2270.0
-Driver                  = /usr/lib/php5/20100525/libmsodbcsql.so
+Driver                 = /opt/microsoft/msodbcsql/lib64/libmsodbcsql-11.0.so.2270.0
 Threading               = 1
 UsageCount              = 3
 ```
+Note your paths may be different to the driver .so files
 
 Check unixodbc version
 ======================
@@ -218,28 +219,23 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
 
 
 
-
-
-
 FYI - Doctrine Test Suite
 =========================
 
 Doctrine2's test suite does not allow you to add database drivers on the fly. If you want to test this package, modify `Doctrine/DBAL/Driver/DriverManager::$_driverMap` as follows:
 
-```php
+```
 final class DriverManager
 {
     private static $_driverMap = array(
 		/* ... snip ... */
-        'pdo_dblib' => 'Doctrine\DBAL\Driver\PDODblib\Driver',
+        'pdo_odbc' => 'Doctrine\DBAL\Driver\PDODblib\Driver',
     );
 }
 ```
 
 FYI - Generating Entities from database
 =======================================
-
-It's possible, but not easy. Here's what I did:
 
 - Map any non-compatible column types to string
 - Hack the Doctrine core to skip any tables without primary keys
