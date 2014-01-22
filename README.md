@@ -7,7 +7,8 @@ With Silex/Doctrine 2 PHP framework connecting to an MS SQL Server 2012 DB on Ub
 Doctrine 2 does support any method of connecting to SQL Server on a Linux box. 
 
 This git repo and instructions are for using the Microsoft Linux native driver and are based on the instructions for freeTDS driver
-here: [https://github.com/LeaseWeb/LswDoctrinePdoDblib] thanks to Maurits van der Schee!
+here: https://github.com/LeaseWeb/LswDoctrinePdoDblib thanks to Maurits van der Schee!
+And I found this blog entry very useful: http://blog.afoolishmanifesto.com/archives/1855
 
 This bundle requires the following accessible from PHP extension directory:
 
@@ -51,8 +52,6 @@ phpize
 make
 sudo make install #installs into your php extensions dir
 ```
-
-Useful blog entry here:http://blog.afoolishmanifesto.com/archives/1855
 
 ---
 
