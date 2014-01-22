@@ -6,8 +6,9 @@ With Silex/PDO/Doctrine PHP framework connecting to an MS SQL Server 2012 DB on 
 
 Doctrine 2 does support any method of connecting to SQL Server on a Linux box. 
 
-__!!!!WARNING Doctrine does not quote parameters correctly when using MS ODBC SQL Server driver
-when you use it's ORM functions, regular SQL and positional/named parameters works.__
+__!!!!WARNING Doctrine does not construct the query correctly using MS ODBC SQL Server driver
+you get a 'COUNT field incorrect or syntax error' SQL error when you use it's ORM functions
+regular SQL and positional/named parameters works.__
 
 __I'll try and fix that and remove this warning__
 
