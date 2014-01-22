@@ -102,7 +102,7 @@ sudo bash ./install.sh install --force   --accept-license
 
 ---
 
-Phew now setup your odbc.ini & odbcinst.ini files:
+Phew now setup your odbc.ini & odbcinst.ini files in /etc/local/etc (unixODBC default) or /etc
 
 MS Linux Driver ODBC configuration
 ==================================
@@ -159,7 +159,7 @@ Check location unixODBC is looking for odbc config files
 =================================================
 odbc_config --libs --longodbcversion --odbcini
 
-You may have to symlink to your actual odbc.ini and odbcinst.ini files!
+You may have to symlink to your actual odbc.ini and odbcinst.ini files depending on your requirements
 
 Test iSQL connect to SQL Server (requires NCLI driver setup)
 ===============================
@@ -210,17 +210,21 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
     'dbname' => '<yourDBname>',
     'host' => '<your SQL server instance host anme>',
     'dsn' => '{SQLServerMSODBC}',
-    //'odbcdriver' => '/usr/lib/php5/20100525/libmsodbcsql.so',
+    //'odbcdriver' => '/opt/microsoft/msodbcsql/lib64/libmsodbcsql-11.0.so.2270.0',
+    'odbcdriver' => '{ODBCDriver11forSQLServer}',
     'charset' => 'utf8',
     'user' => '<your username>',
     'password' => '<your password>',
    PDO::ATTR_PERSISTENT => true,
   ],
 ]);
-
-// note you can pass in the full path/filename of your odbc driver .so library and it will by-pass the odbc confguration
-
 ```
+
+_Note_
+*You can pass in the full path/filename of your odbc driver .so library and it will by-pass the odbc configuration
+*I've modified PDOlibBundle Driver class to create SQL Server style connection string
+*odbcdriver is passed to the Driver parameter, and is separate to the usual PDO param driver. Avoid using this as will 
+not be found in the Driver Map!
 
 
 *INFO - I've not done this!*
