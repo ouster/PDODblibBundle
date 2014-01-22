@@ -2,9 +2,13 @@ PDODblibBundle
 --------------
 
 I created this repo and instructions based on my experience of getting this working for a production environment 
-With Silex/Doctrine 2 PHP framework connecting to an MS SQL Server 2012 DB on Ubuntu. 
+With Silex/PDO/Doctrine PHP framework connecting to an MS SQL Server 2012 DB on Ubuntu. 
 
 Doctrine 2 does support any method of connecting to SQL Server on a Linux box. 
+
+__!!!!WARNING Doctrine does not quote parameters correctly when using MS ODBC SQL Server driver
+when you use it's ORM functions, regular SQL and positional/named parameters works.__
+__I'll try and fix that and remove this warning __
 
 This git repo and instructions are for using the Microsoft Linux native driver and are based on the instructions for freeTDS driver
 here: https://github.com/LeaseWeb/LswDoctrinePdoDblib thanks to Maurits van der Schee!
