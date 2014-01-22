@@ -14,12 +14,12 @@ This bundle requires the following accessible from PHP extension directory:
 
 You will need a sane build environment, sudo access and your wits about you!
 
-* *pdo.so* # built from php sources
-* *pdo_odbc.so* # built from php sources
-* *libmsodbcsql.so* # created from Microsoft Download
-* *libsqlncli.so* #optional for isql cli SQL Server access
-* *unixODBC-2.3.2*
-* PHP 5.x source for your PHP version (you need it to build pdo_odbc.so)
+* **pdo.so** # built from php sources
+* **pdo_odbc.so** # built from php sources
+* **libmsodbcsql.so** # created from Microsoft Download
+* **libsqlncli.so** #optional for isql cli SQL Server access
+* **unixODBC-2.3.2**
+* **PHP 5.x source** for your PHP version (you need it to build pdo_odbc.so)
 
 To get the microsoft drivers:
 =============================
