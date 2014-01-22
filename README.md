@@ -186,8 +186,8 @@ an 'info.php' file to your root web project and goto http://<your web server url
 apache/web server. Google is your friend!
 
 
-Silex Doctrine setup PDOBundleSetup
-====================
+Silex Doctrine PDOBundle setup
+==============================
 
 in your bootstrap.php (or as appropriate)
 Add
