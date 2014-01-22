@@ -8,6 +8,7 @@ Doctrine 2 does support any method of connecting to SQL Server on a Linux box.
 
 __!!!!WARNING Doctrine does not quote parameters correctly when using MS ODBC SQL Server driver
 when you use it's ORM functions, regular SQL and positional/named parameters works.__
+
 __I'll try and fix that and remove this warning __
 
 This git repo and instructions are for using the Microsoft Linux native driver and are based on the instructions for freeTDS driver
