@@ -69,14 +69,14 @@ sudo make install
 ```
 
 Create symlinks as these drivers are designed for RH 5/6
-==================================================
+========================================================
 ```
 sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 ./libssl.so.10
 sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 ./libcrypto.so.10
 ```
 
-MS Native Command Line Client driver 
-=====================================
+MS Native Command Line Client driver (not required for access from PHP but needed for isql access)
+==================================================================================================
 
 Extract the sqlncli package.
 
@@ -87,8 +87,8 @@ sudo bash ./install.sh install --force   --accept-license
 
 ```
 
-MS ODBC Native driver (not required for access from PHP but needed for isql access)
-===================================================================================
+MS ODBC Native driver 
+=====================
 
 Extract the msodbcsql package.
 
@@ -148,14 +148,16 @@ Check unixodbc version
 ======================
 odbcinst -j
 
-Check locate unixODBC is looking for config files
+should say 2.3.2!
+
+Check location unixODBC is looking for odbc config files
 =================================================
 odbc_config --libs --longodbcversion --odbcini
 
 You may have to symlink to your actual odbc.ini and odbcinst.ini files!
 
-Test iSQL
-=========
+Test iSQL connect to SQL Server (requires NCLI driver setup)
+===============================
 isql -v SQLServerNCLI <User Id> <password>
 
 
@@ -184,9 +186,36 @@ an 'info.php' file to your root web project and goto http://<your web server url
 apache/web server. Google is your friend!
 
 
-Silex Doctrine setup
+Silex Doctrine setup PDOBundleSetup
 ====================
-TODO
+
+in your bootstrap.php (or as appropriate)
+Add
+
+putenv('ODBCSYSINI=/etc');
+putenv('ODBCINI=/etc/odbc.ini'); // or add in /etc/profile, or apache configuration - google!
+
+```
+//Register your PDO connection with Silex Doctrine service provider
+$app->register(new Silex\Provider\DoctrineServiceProvider(), [
+  'db.options' => [
+    'driverClass' => 'PDODblibBundle\Doctrine\DBAL\Driver\PDODblib\Driver',
+    'dbname' => '<yourDBname>',
+    'host' => '<your SQL server instance host anme>',
+    'dsn' => '{SQLServerMSODBC}',
+    //'odbcdriver' => '/usr/lib/php5/20100525/libmsodbcsql.so',
+    'charset' => 'utf8',
+    'user' => '<your username>',
+    'password' => '<your password>',
+   PDO::ATTR_PERSISTENT => true,
+  ],
+]);
+
+// note you can pass in the full path/filename of your odbc driver .so library and it will by-pass the odbc confguration
+
+```
+
+
 
 
 
