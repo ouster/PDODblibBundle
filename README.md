@@ -54,6 +54,8 @@ sudo make install #installs into your php extensions dir
 
 Useful blog entry here:http://blog.afoolishmanifesto.com/archives/1855
 
+---
+
 Building UnixODBC 2.3.2
 ===========================
 ```
@@ -98,6 +100,8 @@ cd msodbcsql*
 
 sudo bash ./install.sh install --force   --accept-license
 ```
+
+---
 
 Phew now setup your odbc.ini & odbcinst.ini files:
 
@@ -188,6 +192,8 @@ an 'info.php' file to your root web project and goto http://<your web server url
 apache/web server. Google is your friend!
 
 
+---
+
 Silex Doctrine PDOBundle setup
 ==============================
 
@@ -218,7 +224,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
 ```
 
 
-*INFO - I've not done this!
+*INFO - I've not done this!*
 
 FYI - Doctrine Test Suite
 =========================
