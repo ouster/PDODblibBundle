@@ -199,9 +199,9 @@ Silex Doctrine PDOBundle setup
 in your bootstrap.php (or as appropriate)
 Add
 
-putenv('ODBCSYSINI=/etc');
+__putenv('ODBCSYSINI=/etc');__
 
-putenv('ODBCINI=/etc/odbc.ini'); // or add in /etc/profile, or apache configuration - google it
+__putenv('ODBCINI=/etc/odbc.ini');__ // or add in __/etc/profile__, or __apache configuration__ - google it
 
 
 ```
@@ -229,6 +229,8 @@ __Note__
 
 *odbcdriver is passed to the Driver parameter, and is separate to the usual PDO param driver. Avoid using this as will 
 not be found in the Driver Map!
+
+*host works, dsn did not though I may have not been using the right syntax
 
 
 
